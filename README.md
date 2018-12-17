@@ -10,8 +10,8 @@
 ```javascript
 var words = [
     { "answer": "reindeer", "asked": false },
-    { "answer": "santa", "asked": false },
-    { "answer": "presents", "asked": false },
+    { "answer": "santa", "asked": true },
+    { "answer": "presents", "asked": true },
     { "answer": "winter", "asked": false },
     { "answer": "tree", "asked": false },
 ];
