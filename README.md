@@ -17,6 +17,11 @@ var words = [
 ];
 ```
 * an array filter is called to choose a random word from the array based on whether or not it has been asked before
+```javascript 
+        wordsNotPlayed = wordsToGuess.filter(function (word) {
+            return word.asked === false;
+        })
+```
 * once all the words have been used, all the flags are flipped back to false
 * The program displays x number of underscores to the user in the console window where x is the length of the word.
 * Each underscore represents a letter in the word answer
