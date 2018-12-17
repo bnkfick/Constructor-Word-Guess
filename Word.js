@@ -35,7 +35,7 @@ Word.prototype.pickWord = function () {
     var wordToGuessObj = wordsNotPlayed[Math.floor((wordsNotPlayed.length) * Math.random())];
     wordToGuessObj.asked = true;
 
-    console.log("wordToGuessObj.answer", wordToGuessObj.answer);
+    //console.log("wordToGuessObj.answer", wordToGuessObj.answer);
 
     // An array of new Letter objects representing the letters of the underlying word
     var letters = wordToGuessObj.answer.split("");

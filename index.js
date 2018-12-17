@@ -21,7 +21,7 @@ var inquirer = require("inquirer");
 
 var wordObj;               // Word Object contains the word to guess
 var wrongLetters = [];     // guessed letters that are not in the answer
-var guessesLeft = 10;           // start with 10 guesses
+var guessesLeft = 10;      // start with 10 guesses
 
 startGame();
 
@@ -29,6 +29,7 @@ function startGame() {
     console.log("GUESS A WORD!")
     wordObj = new Word();
     guessesLeft = 10;
+    wrongLetters = [];
     //console.log(wordObj);
     console.log(wordObj.wordDisplay.join(" "));
     guessALetter();
@@ -46,8 +47,12 @@ function guessALetter() {
         ])
         .then(function (player) {
             var continueGuessing = false;
-            if (wordObj.isGuessCorrect(player.letter)) {
-                console.log("Yay! You Guessed a letter!");
+            var letter = player.letter;
+
+            if (player.letter) { letter = player.letter.trim(); }
+
+            if (wordObj.isGuessCorrect(letter)) {
+                console.log("YAY! CORRECT!!! You Guessed a letter!");
                 if (wordObj.isComplete()) {
                     console.log("Word is complete");
                     console.log("WINNER! YOU WIN!!!");
@@ -56,7 +61,8 @@ function guessALetter() {
                     continueGuessing = true;
                 }
             } else {
-                wrongLetters.push(player.letter);
+                console.log("INCORRECT. " + letter + " IS NOT IN THE WORD.");
+                wrongLetters.push(letter.toLowerCase());
                 guessesLeft--;
                 if (guessesLeft === 0) {
                     console.log("You're out of guesses :(");
@@ -64,7 +70,7 @@ function guessALetter() {
                     return restartGame();
                 } else {
                     continueGuessing = true;
-                }
+                } 
             }
             if (continueGuessing === true) {
                 console.log("You have " + guessesLeft + " guesses left [out of 10 guesses].");
@@ -98,12 +104,15 @@ function restartGame() {
 // check letter against the previous 
 // correct AND incorrect guesses
 // if already guessed send user a message
-function validateGuessedLetter(guessedLetter) {
-    if (isLetter(guessedLetter)) {
+function validateGuessedLetter(userInput) {
+    var guess = userInput;
+    if (userInput) { guess = userInput.trim(); }
+    if (isLetter(guess)) {
         //.log(wordObj);
-        if (wordObj.hasGuessedLetter(guessedLetter) ||
-            wrongLetters.indexOf(guessedLetter) > -1) {
-            console.log("You've already guessed the letter " + guessedLetter + ".");
+        if (wordObj.hasGuessedLetter(guess.toLowerCase()) ||
+            wrongLetters.indexOf(guess.toLowerCase()) > -1) {
+            console.log("\tYou've already guessed the letter " + guess + ".  INCORRECT GUESSES: " + wrongLetters);
+            console.log(wordObj.wordDisplay.join(" "));
             return false;
         } else {
             return true;
@@ -119,7 +128,7 @@ function isLetter(letter) {
         //.log("test passed");
         return true;
     } else {
-        console.log("Please enter a letter.");
+        console.log("\tPlease enter 1 letter.");
         return false;
     }
 }
