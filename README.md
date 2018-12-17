@@ -4,7 +4,7 @@
 #### This is a node js CLI word guessing game built using JavaScript constructors for Word and Letter
 * main execution of program is within index.js and uses inquirer to prompt the player
 
-##### The game starts with a random word been selected from the word list. 
+##### The game starts with a random word selected from the word list. 
 * The word is selected from an array of word answer objects with the answer and also whether or not it has been asked.
 * The word array is currently small for testing purposes
 ```javascript
@@ -27,12 +27,12 @@ var words = [
 * Each underscore represents a letter in the word answer
 
 ##### The player is then prompted for guesses
-* The player input is validate for a single alphabetic character with a regular expression
+* The player input is validated for a single alphabetic character with a regular expression
 ```javascript
 if (/^[A-Za-z]{1}$/.test(letter)) return true;
 ```
 * White space is removed from the player input
-* The player input test against the CORRECT and INCORRECT guesses is CASE INSENSITIVE
+* The player input tests against the CORRECT and INCORRECT guesses are CASE INSENSITIVE
 * Player can only guess a letter once. The game will let you know if you guess the same letter and also show a list of your already guessed incorrect letters and redisplay the word answer with underscores/correct letters.  
 * If the player guesses right, the letter is revealed.
 * If guess is wrong, 'guesses left' will be reduced by one(1).
