@@ -133,12 +133,4 @@ function isLetter(letter) {
     }
 }
 
-// function checkAnswer(guessedLetter) {
-//     //console.log(wordObj.isGuessCorrect(guessedLetter));
-//     return wordObj.isGuessCorrect(guessedLetter);
-// }
-// function winGame() {
-//     console.log("WINNER! YOU WIN!!!");
-//     restartGame();
-// }
 
