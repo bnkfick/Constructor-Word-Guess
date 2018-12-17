@@ -14,7 +14,7 @@ var words = [
     { "answer": "winter", "asked": false },
     { "answer": "tree", "asked": false },
 ];
-
+```
 * an array filter is called to choose a random word from the array based on whether or not it has been asked before
 * once all the words have been used, all the flags are flipped back to false
 * The program displays x number of underscores to the user in the console window where x is the length of the word.
@@ -24,6 +24,7 @@ var words = [
 * The player input is validate for a single alphabetic character with a regular expression
 ```javascript
 if (/^[A-Za-z]{1}$/.test(letter)) return true;
+```
 * White space is removed from the player input
 * The player input test against the CORRECT and INCORRECT guesses is CASE INSENSITIVE
 * Player can only guess a letter once. The game will let you know if you guess the same letter and also show a list of your already guessed incorrect letters and redisplay the word answer with underscores/correct letters.  
