@@ -1,7 +1,8 @@
 ## Constructor-Word-Guess
 
 
-#### This is a node js CLI word guessing game built using JavaScript constructors. 
+#### This is a node js CLI word guessing game built using JavaScript constructors for Word and Letter
+* main execution of program is within index.js and uses inquirer to prompt the player
 
 ##### The game starts with a random word been selected from the word list. 
 * The word is selected from an array of word answer objects with the answer and also whether or not it has been asked.
