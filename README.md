@@ -6,6 +6,7 @@
 ##### The game starts with a random word been selected from the word list. 
 * The word is selected from an array of word answer objects with the answer and also whether or not it has been asked.
 * The word array is currently small for testing purposes
+```javascript
 var words = [
     { "answer": "reindeer", "asked": false },
     { "answer": "santa", "asked": false },
@@ -21,6 +22,7 @@ var words = [
 
 ##### The player is then prompted for guesses
 * The player input is validate for a single alphabetic character with a regular expression
+```javascript
 if (/^[A-Za-z]{1}$/.test(letter)) return true;
 * White space is removed from the player input
 * The player input test against the CORRECT and INCORRECT guesses is CASE INSENSITIVE
